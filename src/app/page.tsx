@@ -1,3 +1,8 @@
 export default function Home() {
-  return <div>GitVerse</div>;
+  return (
+    <>
+      <div>amir</div>
+      <div>amir</div>
+    </>
+  );
 }
