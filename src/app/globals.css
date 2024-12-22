@@ -1,3 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --color-white: theme('colors.white');
+    --color-black: theme('colors.black');
+    --color-dark-100: theme('colors.dark-100');
+    --color-dark-200: theme('colors.dark-200');
+    --color-dark-300: theme('colors.dark-300');
+    --color-dark-400: theme('colors.dark-400');
+    --color-light-100: theme('colors.light-100');
+    --color-light-200: theme('colors.light-200');
+    --color-light-300: theme('colors.light-300');
+    --color-light-400: theme('colors.light-400');
+    --color-success: theme('colors.success');
+    --color-warning: theme('colors.warning');
+    --color-error: theme('colors.error');
+  }
+
+  html {
+    font-family: var(--font-vazir);
+  }
+
+  :lang(en) {
+    font-family: var(--font-figtree);
+  }
+}
