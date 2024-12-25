@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
+import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   title: 'GitVerse',
@@ -52,8 +53,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html dir="rtl" className={`dark ${figtree.variable} ${vazir.variable}`}>
-      <body className="min-h-screen bg-light-100 dark:bg-dark-100">{children}</body>
-    </html>
+    <SessionProvider>
+      <html dir="rtl" className={`dark ${figtree.variable} ${vazir.variable}`}>
+        <body className="min-h-screen bg-light-100 dark:bg-dark-100">{children}</body>
+      </html>
+    </SessionProvider>
   );
 }
