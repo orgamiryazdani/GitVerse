@@ -1,8 +1,9 @@
+import './globals.css';
 import type { Metadata } from 'next';
 import { Figtree } from 'next/font/google';
 import localFont from 'next/font/local';
-import './globals.css';
 import { SessionProvider } from 'next-auth/react';
+import { Header } from './_components/header';
 
 export const metadata: Metadata = {
   title: 'GitVerse',
@@ -55,7 +56,10 @@ export default function RootLayout({
   return (
     <SessionProvider>
       <html dir="rtl" className={`dark ${figtree.variable} ${vazir.variable}`}>
-        <body className="min-h-screen bg-light-100 dark:bg-dark-100">{children}</body>
+        <body className="min-h-screen bg-light-100 dark:bg-dark-100">
+          <Header />
+          {children}
+        </body>
       </html>
     </SessionProvider>
   );
