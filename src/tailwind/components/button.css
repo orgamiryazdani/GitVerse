@@ -1,0 +1,111 @@
+.btn {
+  @apply no-underline gap-2 h-12 px-7 border inline-flex cursor-pointer select-none;
+  @apply items-center justify-center border-transparent text-center transition duration-100 ease-in-out rounded-lg;
+  &:active:hover,
+  &:active:focus {
+    transform: scale(0.97);
+  }
+
+  /* default btn */
+  & {
+    @apply dark:border-dark-100 dark:bg-dark-100 dark:text-dark-content dark:outline-dark-100;
+  }
+  /* dark colors */
+  &-dark-100 {
+    @apply dark:border-dark-100 dark:bg-dark-100 dark:text-dark-content dark:outline-dark-100;
+  }
+  &-dark-200 {
+    @apply dark:border-dark-200 dark:bg-dark-200 dark:text-dark-content dark:outline-dark-200;
+  }
+  &-dark-300 {
+    @apply dark:border-dark-300 dark:bg-dark-300 dark:text-dark-content dark:outline-dark-300;
+  }
+  &-dark-400 {
+    @apply dark:border-dark-400 dark:bg-dark-400 dark:text-dark-content dark:outline-dark-400;
+  }
+
+  /* light colors */
+  &-light-100 {
+    @apply dark:border-light-100 dark:bg-light-100 dark:text-light-content dark:outline-light-100;
+  }
+  &-light-200 {
+    @apply dark:border-light-200 dark:bg-light-200 dark:text-light-content dark:outline-light-200;
+  }
+  &-light-300 {
+    @apply dark:border-light-300 dark:bg-light-300 dark:text-light-content dark:outline-light-300;
+  }
+  &-light-400 {
+    @apply dark:border-light-400 dark:bg-light-400 dark:text-light-content dark:outline-light-400;
+  }
+  /* brand colors */
+  &-success {
+    @apply dark:border-success dark:bg-success dark:text-dark-100 dark:outline-success;
+  }
+  &-warning {
+    @apply dark:border-warning dark:bg-warning dark:text-dark-100 dark:outline-warning;
+  }
+  &-error {
+    @apply dark:border-error dark:bg-error dark:text-black dark:outline-error;
+  }
+  &-link {
+    @apply !border-transparent !bg-transparent dark:text-light-100 !outline-none h-auto px-1;
+  }
+
+  /* outline */
+  &-outline {
+    @apply border-light-100 dark:bg-transparent dark:text-dark-content;
+    &.btn-success {
+      @apply dark:text-success;
+    }
+    &.btn-warning {
+      @apply dark:text-warning;
+    }
+    &.btn-error {
+      @apply dark:text-error;
+    }
+  }
+
+  /* disabled */
+  &[disabled],
+  &:disabled {
+    @apply pointer-events-none border-opacity-0 dark:bg-dark-300 dark:bg-opacity-20 dark:text-dark-400 dark:text-opacity-20;
+  }
+
+  /* size and shape */
+  &-xs {
+    @apply h-6 px-2;
+    font-size: 0.75rem;
+  }
+  &-sm {
+    @apply h-8 px-3;
+    font-size: 0.875rem;
+  }
+  &-md {
+    @apply h-12 px-4;
+    font-size: 0.875rem;
+  }
+  &-lg {
+    @apply h-16 px-6;
+    font-size: 1.125rem;
+  }
+  &-wide {
+    @apply w-64 flex-nowrap;
+  }
+  &-block {
+    @apply w-full;
+  }
+  &-square {
+    &:where(.btn-xs) {
+      @apply h-6 w-6 p-0;
+    }
+    &:where(.btn-sm) {
+      @apply h-8 w-8 p-0;
+    }
+    &:where(.btn-md) {
+      @apply h-12 w-12 p-0;
+    }
+    &:where(.btn-lg) {
+      @apply h-16 w-16 p-0;
+    }
+  }
+}
