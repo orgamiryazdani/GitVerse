@@ -12,6 +12,7 @@ const eslintConfig = [
     rules: {
       'react/react-in-jsx-scope': 'off',
       'no-undef': 'off',
+      'max-params': ['error', 3]
     },
   }),
 ];
