@@ -1,5 +1,8 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+
+@import '../tailwind/components.css';
+
 @import 'tailwindcss/utilities';
 
 @layer base {
@@ -10,10 +13,12 @@
     --color-dark-200: theme('colors.dark-200');
     --color-dark-300: theme('colors.dark-300');
     --color-dark-400: theme('colors.dark-400');
+    --color-dark-content: theme('colors.dark-content');
     --color-light-100: theme('colors.light-100');
     --color-light-200: theme('colors.light-200');
     --color-light-300: theme('colors.light-300');
     --color-light-400: theme('colors.light-400');
+    --color-light-content: theme('colors.light-content');
     --color-success: theme('colors.success');
     --color-warning: theme('colors.warning');
     --color-error: theme('colors.error');
@@ -25,5 +30,21 @@
 
   :lang(en) {
     font-family: var(--font-figtree);
+  }
+}
+
+.up-down-icon-animation {
+  animation: updown 1s linear infinite;
+}
+
+@keyframes updown {
+  0% {
+    margin-top: 0px;
+  }
+  50% {
+    margin-top: 10px;
+  }
+  100% {
+    margin-top: 0px;
   }
 }
