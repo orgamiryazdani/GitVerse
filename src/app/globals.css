@@ -39,12 +39,12 @@
 
 @keyframes updown {
   0% {
-    margin-top: 0px;
+    bottom: 0px;
   }
   50% {
-    margin-top: 10px;
+    bottom: 10px;
   }
   100% {
-    margin-top: 0px;
+    bottom: 0px;
   }
 }
