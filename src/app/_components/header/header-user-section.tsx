@@ -4,13 +4,16 @@ import { useSession } from 'next-auth/react';
 import { Button } from '../button';
 import { SiGithub } from 'react-icons/si';
 import Image from 'next/image';
+import truncateText from '@/utils/truncateText';
 
 const HeaderUserSection: React.FC = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   return (
     <div>
-      {session?.user ? (
+      {status === 'loading' ? (
+        <div className="w-44 h-12 rounded-xl bg-dark-400"></div>
+      ) : session?.user ? (
         <div className="flex items-center gap-x-10">
           <div className="flex items-center justify-center gap-x-3">
             <Image
@@ -21,8 +24,8 @@ const HeaderUserSection: React.FC = () => {
               alt={session.user?.name || ''}
             />
             <div className="text-sm">
-              {session.user?.name || 'Unknown'} <br />
-              {session.user?.email || 'Unknown'} <br />
+              {truncateText(session.user?.name || 'کاربر ناشناس', 15)} <br />
+              {truncateText(session.user?.email || 'کاربر ناشناس', 15)} <br />
             </div>
           </div>
         </div>
