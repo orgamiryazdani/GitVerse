@@ -17,16 +17,20 @@ export const tailwindColors: { [key: string]: string } = {
   success: "#36d399",
   warning: "#fbbd23",
   error: "#f87272",
-}
+};
 
 export default {
   content: ["./src/app/**/*.{tsx,jsx}"],
   theme: {
     colors: tailwindColors,
     container: {
-      center: true
+      center: true,
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        "8xl": "1500px",
+      },
+    },
   },
   darkMode: "class",
   plugins: [],
