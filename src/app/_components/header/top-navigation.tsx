@@ -2,6 +2,7 @@
 import { NavigationMenuItem } from "@/types/navigation-menu-item";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { CiMenuFries } from "react-icons/ci";
 
 const menuItems: NavigationMenuItem[] = [
   {
@@ -21,7 +22,9 @@ const menuItems: NavigationMenuItem[] = [
 export const TopNavigation: React.FC = () => {
   const pathname = usePathname();
   return (
-    <ul className='flex gap-x-8 mr-12'>
+    <>
+    <CiMenuFries className="md:hidden text-2xl mr-4"/>
+    <ul className='md:flex hidden gap-x-8 mr-12'>
       {menuItems.map((item) => {
         const isActive = pathname === item.href;
         return (
@@ -38,5 +41,6 @@ export const TopNavigation: React.FC = () => {
         );
       })}
     </ul>
+      </>
   );
 };
