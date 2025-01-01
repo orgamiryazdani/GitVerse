@@ -52,7 +52,7 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
 const Menu: React.FC<{ showMenu: boolean }> = ({ showMenu }) => {
   return (
     <menu
-      className={`md:hidden absolute w-full bg-dark-300 top-0 p-5 gap-5 flex flex-col transition-all duration-200 ease-in-out ${showMenu ? 'h-56' : 'h-0 p-0'}`}
+      className={`md:hidden absolute w-full bg-dark-300 top-0 gap-5 flex flex-col transition-all duration-200 ease-in-out ${showMenu ? 'h-56 p-5' : 'h-0 p-0'}`}
     >
       {menuItems.map((item) => (
         <li
