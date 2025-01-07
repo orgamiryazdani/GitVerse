@@ -8,12 +8,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.config({
-    extends: [
-      'eslint:recommended',
-      'next',
-      'prettier',
-      'plugin:prettier/recommended',
-    ],
+    extends: ['eslint:recommended', 'next', 'prettier', 'plugin:prettier/recommended'],
     plugins: ['prettier'],
     rules: {
       'react/react-in-jsx-scope': 'off',
