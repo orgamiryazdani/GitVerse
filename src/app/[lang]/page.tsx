@@ -4,7 +4,10 @@ import Image from 'next/image';
 import { getDictionary } from './dictionaries';
 import { lang } from '@/types/languages';
 
-export async function generateMetadata({ params: { lang } }: { params: lang }) {
+type Params = Promise<lang>;
+
+export async function generateMetadata({ params }: { params: Params }) {
+  const { lang } = await params;
   const dict = await getDictionary(lang);
 
   return {
@@ -16,7 +19,8 @@ export async function generateMetadata({ params: { lang } }: { params: lang }) {
   };
 }
 
-export default async function Home({ params: { lang } }: { params: lang }) {
+export default async function Home({ params }: { params: Params }) {
+  const { lang } = await params;
   const dict = await getDictionary(lang);
 
   return (
