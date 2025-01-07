@@ -49,11 +49,12 @@ const vazir = localFont({
 
 export default async function RootLayout({
   children,
-  params: { lang },
+  params,
 }: Readonly<{
   children: React.ReactNode;
   params: lang;
 }>) {
+  const { lang } = await params;
   const dictionary = await getDictionary(lang);
 
   return (
