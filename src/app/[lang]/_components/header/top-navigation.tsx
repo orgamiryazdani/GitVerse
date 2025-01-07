@@ -16,7 +16,7 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
   const menuItems: NavigationMenuItem[] = [
     {
       title: dict.home_page,
-      href: '/fa',
+      href: '/',
     },
     {
       title: dict.followers_analysis,
@@ -28,6 +28,13 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
     },
   ];
 
+  const isActiveRoute = (href: string) => {
+    if (href === '/') {
+      return pathname === '/' || pathname === `/${lang}`;
+    }
+    return pathname === href || pathname === `/${lang}${href}`;
+  };
+
   return (
     <>
       {/* menu mobile */}
@@ -35,12 +42,12 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
         className={`md:hidden absolute w-full bg-dark-300 top-0 gap-5 flex flex-col transition-all duration-200 ease-in-out ${showMenu ? 'h-56 p-5' : 'h-0 p-0'}`}
       >
         {menuItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = isActiveRoute(item.href);
           return (
             <Link
               key={`navigation-${item.href}`}
               href={item.href}
-              className={`w-full h-12 px-3 flex items-center bg-dark-400  rounded-lg ${isActive ? 'text-light-300' : 'text-light-100'}`}
+              className={`w-full h-12 px-3 flex items-center bg-dark-400 rounded-lg ${isActive ? 'text-light-300' : 'text-light-100'}`}
             >
               <div>{showMenu && item.title}</div>
             </Link>
@@ -54,7 +61,7 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
       {/* menu desktop */}
       <ul className="md:flex hidden gap-x-8 mx-12">
         {menuItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = isActiveRoute(item.href);
           return (
             <li key={`navigation-${item.href}`}>
               <Link
