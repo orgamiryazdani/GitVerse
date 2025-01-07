@@ -1,1 +1,1 @@
-export * from './stair-transition'
+export * from './stair-transition';

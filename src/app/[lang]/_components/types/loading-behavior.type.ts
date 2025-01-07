@@ -1,4 +1,4 @@
 export type LoadingBehavior = {
-    isLoading?: boolean;
-    loadingText?: string;
-}
+  isLoading?: boolean;
+  loadingText?: string;
+};

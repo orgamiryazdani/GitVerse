@@ -15,7 +15,7 @@ export const PageTransition = ({ children }: { children: ReactNode }) => {
           }}
           animate={{
             opacity: 0,
-            transition: { delay: 1, duration: 0.4, ease: "easeInOut" },
+            transition: { delay: 1, duration: 0.4, ease: 'easeInOut' },
           }}
           className="w-screen h-screen fixed bg-dark-100 top-0 pointer-events-none"
         />
