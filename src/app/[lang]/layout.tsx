@@ -8,6 +8,7 @@ import { lang } from '@/types/languages';
 import { Header } from './_components/header';
 import { PageTransition } from './_components/page-transition';
 import { StairTransition } from './_components/stairs-transition';
+import ThemeProvider from '@/providers/ThemeProvider';
 
 const figtree = Figtree({
   display: 'swap',
@@ -62,9 +63,11 @@ export default async function RootLayout({
       <DictionaryProvider dictionary={dictionary}>
         <html dir={lang === 'en' ? 'ltr' : 'rtl'} lang={lang} className={`dark ${figtree.variable} ${vazir.variable}`}>
           <body className="min-h-screen bg-light-100 dark:bg-dark-100">
-            <Header lang={lang} />
-            <StairTransition />
-            <PageTransition>{children}</PageTransition>
+            <ThemeProvider>
+              <Header lang={lang} />
+              <StairTransition />
+              <PageTransition>{children}</PageTransition>
+            </ThemeProvider>
           </body>
         </html>
       </DictionaryProvider>
