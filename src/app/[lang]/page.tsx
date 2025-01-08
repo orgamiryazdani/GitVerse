@@ -29,11 +29,11 @@ export default async function Home({ params }: { params: Params }) {
         <section
           className={`lg:w-1/2 w-full lg:h-full min-h-[36vh] flex flex-col items-start lg:justify-center lg:gap-y-7 gap-y-5 ${lang === 'fa' ? 'lg:pr-10' : 'px-10'} p-5 dark:text-white text-black`}
         >
-          <h3 className="dark:text-light-300 lg:text-sm text-xs">{dict.access_more_features}</h3>
+          <h3 className="dark:text-light-300 text-dark-300 lg:text-sm text-xs">{dict.access_more_features}</h3>
           <h1 className="lg:text-5xl text-2xl font-bold">{dict.platform_title}</h1>
           <h2 className="lg:text-2xl text-sm font-light lg:leading-[55px] leading-10">{dict.platform_description}</h2>
           <div className="flex flex-col lg:flex-row lg:gap-x-5 gap-y-5 w-full">
-            <Button variant="light-100" isOutline className="font-bold text-lg">
+            <Button variant="light-200" isOutline className="font-bold text-lg">
               {dict.try_for_free}
             </Button>
             <Button className="font-bold text-lg" variant="light-200">
@@ -57,7 +57,7 @@ export default async function Home({ params }: { params: Params }) {
           <span>{dict.premium_requests}</span>
         </section>
         <section className="w-full min-h-[2rem] text-white text-3xl flex items-center justify-center h-1/2 relative">
-          <BsChevronCompactDown className="up-down-icon-animation text-light-100 absolute" />
+          <BsChevronCompactDown className="up-down-icon-animation dark:text-light-100 text-dark-100 absolute" />
         </section>
       </footer>
     </main>

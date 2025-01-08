@@ -33,7 +33,7 @@ const HeaderUserSection: React.FC = () => {
           </div>
         </Link>
       ) : (
-        <Button variant="dark-400" className="px-[27px] py-5" size="small" onClick={() => signIn('github')}>
+        <Button variant="light-400" className="px-[27px] py-5" size="small" onClick={() => signIn('github')}>
           {dict.sign_in_with_github}
           <SiGithub className="text-xl" />
         </Button>

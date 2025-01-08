@@ -80,7 +80,7 @@ const ChangeLanguage = ({ lang, showLanguage, showLanguageHandler }: lang & prop
           icons.map(({ id, name, variants }) => (
             <FramerMotionAnimation
               key={id}
-              className={`absolute w-10 h-10 bg-dark-400 z-10 cursor-pointer flex items-center justify-center ${lang === 'fa' ? 'pt-[2px]' : 'pt-[0px]'} rounded-full border-2 border-light-300 text-light-100`}
+              className={`absolute w-10 h-10 dark:bg-dark-400 bg-light-400 z-10 cursor-pointer flex items-center justify-center ${lang === 'fa' ? 'pt-[2px]' : 'pt-[0px]'} rounded-full border-2 border-light-300 text-light-100`}
               initial="hidden"
               animate="visible"
               exit="hidden"
