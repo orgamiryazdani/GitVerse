@@ -39,7 +39,7 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
     <>
       {/* menu mobile */}
       <menu
-        className={`md:hidden absolute w-full bg-dark-300 top-0 gap-5 flex flex-col transition-all duration-200 ease-in-out ${showMenu ? 'h-56 p-5' : 'h-0 p-0'}`}
+        className={`md:hidden absolute w-full dark:bg-dark-300 bg-dark-400 top-0 gap-5 flex flex-col transition-all duration-200 ease-in-out ${showMenu ? 'h-56 p-5' : 'h-0 p-0'}`}
       >
         {menuItems.map((item) => {
           const isActive = isActiveRoute(item.href);
@@ -47,7 +47,7 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
             <Link
               key={`navigation-${item.href}`}
               href={item.href}
-              className={`w-full h-12 px-3 flex items-center bg-dark-400 rounded-lg ${isActive ? 'text-light-300' : 'text-light-100'}`}
+              className={`w-full h-12 px-3 flex items-center dark:bg-dark-400 bg-light-300 rounded-lg ${isActive ? 'dark:text-light-300 text-dark-400' : 'dark:text-light-100 text-dark-100'}`}
             >
               <div>{showMenu && item.title}</div>
             </Link>

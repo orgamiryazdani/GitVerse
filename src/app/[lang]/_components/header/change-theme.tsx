@@ -63,7 +63,7 @@ const ChangeTheme = ({ showTheme, showThemeHandler }: { showTheme: boolean; show
           icons.map(({ id, icon, variants, name }) => (
             <FramerMotionAnimation
               key={id}
-              className={`${theme === name ? 'text-light-400 border-light-400' : 'text-light-100 border-light-300'} absolute w-10 h-10 bg-dark-400 text-[22px] cursor-pointer flex items-center justify-center rounded-full border-2`}
+              className={`${theme === name ? 'dark:text-light-400 text-dark-200 dark:border-light-400 border-dark-400' : 'text-light-100 border-light-300'} absolute w-10 h-10 dark:bg-dark-400 bg-light-400 text-[22px] cursor-pointer flex items-center justify-center rounded-full border-2`}
               initial="hidden"
               animate="visible"
               exit="hidden"
