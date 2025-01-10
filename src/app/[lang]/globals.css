@@ -32,19 +32,3 @@
     font-family: var(--font-figtree);
   }
 }
-
-.up-down-icon-animation {
-  animation: updown 1s linear infinite;
-}
-
-@keyframes updown {
-  0% {
-    bottom: 0px;
-  }
-  50% {
-    bottom: 10px;
-  }
-  100% {
-    bottom: 0px;
-  }
-}
