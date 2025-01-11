@@ -41,8 +41,8 @@ export default async function Home({ params }: { params: Params }) {
   const dict = await getDictionary(lang);
 
   return (
-    <main className="min-h-[89svh] w-svw flex items-center justify-center flex-col">
-      <section className="w-full max-w-8xl min-h-[72vh] flex flex-col lg:flex-row items-center">
+    <main className="min-h-[89vh]  w-vw flex items-center justify-center flex-col">
+      <section className="w-full max-w-8xl min-h-[72vh] md:max-h-[500px] flex flex-col lg:flex-row items-center">
         <section
           className={`lg:w-1/2 w-full lg:h-full min-h-[36vh] flex flex-col items-start lg:justify-center lg:gap-y-7 gap-y-5 ${lang === 'fa' ? 'lg:pr-10' : 'lg:pl-10'} p-5 dark:text-white text-black`}
         >
@@ -68,7 +68,7 @@ export default async function Home({ params }: { params: Params }) {
           />
         </section>
       </section>
-      <footer className="w-full h-[10vh] md:min-h-[17vh] flex flex-col md:justify-center">
+      <footer className="w-full h-[10vh] md:h-[17vh] max-h-[125px] max-w-8xl flex flex-col md:justify-center">
         <section className="h-1/2 min-h-[50px] flex flex-row items-center justify-center lg:gap-20 gap-5 dark:text-light-300 font-bold md:text-2xl text-sm">
           <div className="flex items-center justify-center">
             <div className="md:w-8 w-5">
