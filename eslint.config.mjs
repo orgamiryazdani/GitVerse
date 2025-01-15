@@ -22,6 +22,7 @@ const eslintConfig = [
       'no-undef': 'off',
       'max-params': ['error', 3],
       'prettier/prettier': 'error',
+      '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
@@ -31,7 +32,6 @@ const eslintConfig = [
         },
       ],
     },
-
   }),
 ];
 
