@@ -4,7 +4,6 @@ import { createContext, useContext, useEffect, useState } from 'react';
 type Theme = 'dark' | 'light';
 type ThemeContextValue = {
   theme: Theme | null;
-  // eslint-disable-next-line no-unused-vars
   changeTheme: (theme: Theme) => void;
 };
 

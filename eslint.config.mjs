@@ -23,6 +23,7 @@ const eslintConfig = [
       'max-params': ['error', 3],
       'prettier/prettier': 'error',
       '@typescript-eslint/no-empty-object-type': 'off',
+      'react-hooks/exhaustive-deps': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
