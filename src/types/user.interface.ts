@@ -7,6 +7,7 @@ export interface UserToken {
   email: string;
   image: string;
   accessToken: string;
+  username: string;
 }
 
 export interface UserSession extends UserToken {}
