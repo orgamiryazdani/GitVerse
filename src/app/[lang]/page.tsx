@@ -5,7 +5,7 @@ import { getDictionary } from './dictionaries';
 import { lang } from '@/types/languages';
 import { FramerMotionAnimation } from './_components/framer-motion';
 import { Counter } from './_components/counter';
-import { UserAnalysis } from './_components/user-analysis';
+import { RepoAnalysis } from './_components/repo-analysis';
 
 const arrowVariants = {
   initial: {
@@ -95,7 +95,7 @@ export default async function Home({ params }: { params: Params }) {
           <BsChevronCompactDown className="dark:text-light-100 text-dark-100" />
         </FramerMotionAnimation>
       </footer>
-      <UserAnalysis />
+      <RepoAnalysis />
     </main>
   );
 }
