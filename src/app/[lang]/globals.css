@@ -24,6 +24,11 @@
     --color-error: theme('colors.error');
   }
 
+  input,
+  select {
+    @apply focus:ring-4 ring-light-400 outline-none;
+  }
+
   html {
     font-family: var(--font-vazir);
   }
