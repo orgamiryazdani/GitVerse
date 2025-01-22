@@ -9,6 +9,8 @@ import { Header } from './_components/header';
 import { PageTransition } from './_components/page-transition';
 import { StairTransition } from './_components/stairs-transition';
 import ThemeProvider from '@/providers/ThemeProvider';
+import QueryProvider from '@/providers/react-query-provider';
+import { Toaster } from 'react-hot-toast';
 
 const figtree = Figtree({
   display: 'swap',
@@ -64,9 +66,12 @@ export default async function RootLayout({
         <html dir={lang === 'en' ? 'ltr' : 'rtl'} lang={lang} className={`dark ${figtree.variable} ${vazir.variable}`}>
           <body className="min-h-screen bg-light-100 dark:bg-dark-100">
             <ThemeProvider>
-              <Header lang={lang} />
-              <StairTransition />
-              <PageTransition>{children}</PageTransition>
+              <QueryProvider>
+                <Toaster />
+                <Header lang={lang} />
+                <StairTransition />
+                <PageTransition>{children}</PageTransition>
+              </QueryProvider>
             </ThemeProvider>
           </body>
         </html>
