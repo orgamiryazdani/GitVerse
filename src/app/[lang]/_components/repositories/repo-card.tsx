@@ -19,16 +19,16 @@ export const RepoCard: React.FC<repoCardProps> = ({
     <div
       key={id}
       onClick={() => repoHandler(id, owner, name)}
-      className={`w-full h-auto cursor-pointer bg-dark-400 rounded-2xl mr-1 p-3 ${activeRepo === id ? 'border-2 border-light-400' : ''}`}
+      className={`w-full h-auto cursor-pointer dark:bg-dark-400 bg-light-400 rounded-2xl mr-1 p-3 ${activeRepo === id ? 'border-2 dark:border-light-400 border-light-100' : ''}`}
     >
       <div className="flex items-center gap-x-3">
-        <p className="text-white font-bold">{name}</p>
-        <div className="border border-light-300 text-light-300 text-[11px] flex items-center justify-center h-5 w-12 rounded-2xl">
+        <p className="dark:text-white text-dark-100 font-bold">{name}</p>
+        <div className="border dark:border-light-300 border-dark-200 dark:text-light-300 text-dark-200 text-[11px] flex items-center justify-center h-5 w-12 rounded-2xl">
           {visibility}
         </div>
       </div>
-      <p className="text-xs text-light-300 mt-1">{description}</p>
-      <div className="flex w-full text-sm gap-x-3 text-light-300 mt-[10px]">
+      <p className="text-xs dark:text-light-300 text-dark-200 mt-1">{description}</p>
+      <div className="flex w-full text-sm gap-x-3 dark:text-light-300 text-dark-200 mt-[10px]">
         <p>{language}</p>
         {stargazers_count > 0 && (
           <p className="flex gap-x-1">
