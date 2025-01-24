@@ -26,7 +26,7 @@
 
   input,
   select {
-    @apply focus:ring-4 ring-light-400 outline-none;
+    @apply focus:ring-4 dark:ring-light-400 ring-dark-400 outline-none;
   }
 
   html {
