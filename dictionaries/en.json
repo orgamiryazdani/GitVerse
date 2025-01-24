@@ -12,5 +12,15 @@
   "followers_analysis": "Followers Analysis",
   "activities_analysis": "Activities Analysis",
   "meta_title_home": "GitVerse GitHub Analytics for Followers, Followings, Unfollow, and Repositories",
-  "meta_description_home": "Analyze GitHub activities like repositories, followers, followings, and profile settings, including private repositories and profile pictures."
+  "meta_description_home": "Analyze GitHub activities like repositories, followers, followings, and profile settings, including private repositories and profile pictures.",
+  "repo_analysis_title": "Analysis of repositories and user activities",
+  "repo_input_analysis_placeholder": "Enter the username or GitHub link of the desired user",
+  "search_btn_text": "search",
+  "analysis_your_page_btn_text": "Analyze your page",
+  "please_search_for_a_user": "Please search for a user",
+  "no_repository_found": "No repository found",
+  "select_a_repository": "Select a repository",
+  "no_activity_found": "No activity found",
+  "please_enter_a_value": "Please enter a value",
+  "please_log_in": "Please log in"
 }
