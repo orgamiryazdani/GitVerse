@@ -1,20 +1,22 @@
 export function formatDate(isoDate: string, text: string): string {
-  const date = new Date(isoDate);
-  const now = new Date();
-  const diffInMs: number = now.getTime() - date.getTime();
-  const diffInDays: number = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+  const diff = Date.now() - new Date(isoDate).getTime();
+  const sec = Math.floor(diff / 1000);
+  const min = Math.floor(sec / 60);
+  const hr = Math.floor(min / 60);
+  const day = Math.floor(hr / 24);
+  const week = Math.floor(day / 7);
 
-  if (diffInDays < 7) return `${text} ${diffInDays} days ago`;
-  if (diffInDays < 30) {
-    const weeks: number = Math.floor(diffInDays / 7);
-    return `${text} ${weeks} week${weeks > 1 ? 's' : ''} ago`;
-  }
+  const format = (n: number, unit: string) => `${text} ${n} ${unit}${n !== 1 ? 's' : ''} ago`;
 
-  const options: Intl.DateTimeFormatOptions = {
+  if (sec < 60) return format(sec, 'second');
+  if (min < 60) return format(min, 'minute');
+  if (hr < 24) return format(hr, 'hour');
+  if (day < 7) return format(day, 'day');
+  if (week < 4) return format(week, 'week');
+
+  return `${text} on ${new Date(isoDate).toLocaleDateString('en-US', {
     month: 'short',
     day: '2-digit',
     year: 'numeric',
-  };
-
-  return `${text} on ${date.toLocaleDateString('en-US', options)}`;
+  })}`;
 }

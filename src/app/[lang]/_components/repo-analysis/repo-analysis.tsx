@@ -119,7 +119,11 @@ export const RepoAnalysis: React.FC = () => {
         ) : (
           <RepoList repositories={repositories} repoHandler={repoHandler} activeRepo={activeRepo} />
         )}
-        {commitsLoading ? <CommitsPlaceholder /> : <CommitList branches={branches} commits={commits} />}
+        {commitsLoading ? (
+          <CommitsPlaceholder />
+        ) : (
+          <CommitList selectedRepo={selectedRepo} branches={branches} commits={commits} />
+        )}
       </section>
     </main>
   );

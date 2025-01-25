@@ -2,10 +2,10 @@ import { commitDataType } from '@/app/[lang]/_components/commits/commit.types';
 import { getCommitsApi } from '@/services/commitsService';
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 
-export const useGetCommits = (owner: string, name: string) => {
+export const useGetCommits = (owner: string, name: string, branchValue?: string) => {
   const queryResult: UseQueryResult<commitDataType[]> = useQuery({
     queryKey: ['commits', owner, name],
-    queryFn: () => getCommitsApi(owner, name),
+    queryFn: () => getCommitsApi(owner, name, branchValue),
     enabled: !!owner && !!name,
   });
 
