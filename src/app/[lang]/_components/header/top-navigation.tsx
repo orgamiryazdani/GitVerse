@@ -20,11 +20,11 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
     },
     {
       title: dict.followers_analysis,
-      href: '/courses',
+      href: '/user-analysis',
     },
     {
       title: dict.activities_analysis,
-      href: '/blog',
+      href: '/repo-analysis',
     },
   ];
 
