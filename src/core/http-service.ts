@@ -46,7 +46,7 @@ httpService.interceptors.response.use(
 
 async function apiBase<T>(url: string, options?: AxiosRequestConfig): Promise<T> {
   const response: AxiosResponse = await httpService(url, options);
-  return response.data as T;
+  return response as T;
 }
 
 async function readData<T>(url: string, headers?: AxiosRequestHeaders): Promise<T> {
