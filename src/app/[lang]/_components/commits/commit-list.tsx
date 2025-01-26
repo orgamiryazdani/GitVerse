@@ -2,13 +2,15 @@
 import { useDictionary } from '@/providers/DictionaryProvider';
 import { CommitCard } from './commit-card';
 import { commitDataType, commitListProps } from './commit.types';
-import { MdArrowLeft, MdArrowRight } from 'react-icons/md';
 import { useEffect, useState } from 'react';
 import { useGetCommits } from '@/hooks/useGetCommits';
+import { Pagination } from '../pagination';
 
-export const CommitList: React.FC<commitListProps> = ({ commits, branches, selectedRepo }) => {
+export const CommitList: React.FC<commitListProps> = ({ commits, branches, selectedRepo, linkHeader, currentPage }) => {
   const [commitSearch, setCommitSearch] = useState<commitDataType[] | []>([]);
   const [sha, setSha] = useState('');
+  const [page, setPage] = useState(1);
+  const { refetch } = useGetCommits(selectedRepo.owner, selectedRepo.name, sha, page);
   const dict = useDictionary();
 
   useEffect(() => {
@@ -26,9 +28,13 @@ export const CommitList: React.FC<commitListProps> = ({ commits, branches, selec
     }
   };
 
-  const { refetch } = useGetCommits(selectedRepo.owner, selectedRepo.name, sha);
+  const paginationHandler = async (direction: 'increment' | 'decrement') => {
+    await setPage((prevPage) => (direction === 'increment' ? prevPage + 1 : prevPage - 1));
+    refetch();
+  };
 
   const filterHandler = async (value: string) => {
+    await setPage(1);
     await setSha(value);
     refetch();
   };
@@ -69,19 +75,7 @@ export const CommitList: React.FC<commitListProps> = ({ commits, branches, selec
               <CommitCard key={commit.message + sha} commit={commit} committer={committer} />
             ))}
           </div>
-          {commits.length > 0 && (
-            <div className="w-44 h-14 sticky left-1/2 -translate-x-1/2 bottom-0 flex items-center justify-center gap-x-3 dark:bg-dark-300 bg-light-400 border dark:border-dark-400 border-light-100 rounded-xl">
-              <span className="w-11 cursor-pointer text-3xl dark:text-white text-dark-100 h-10 flex items-center justify-center rounded-lg dark:bg-dark-400 bg-light-300">
-                <MdArrowLeft />
-              </span>
-              <span className="w-12 dark:bg-dark-400 bg-light-300 rounded-lg h-10 flex items-center justify-center dark:text-white text-dark-100 text-xl">
-                1
-              </span>
-              <span className="w-11 cursor-pointer text-3xl dark:text-white text-dark-100 h-10 flex items-center justify-center rounded-lg dark:bg-dark-400 bg-light-300">
-                <MdArrowRight />
-              </span>
-            </div>
-          )}
+          <Pagination linkHeader={linkHeader} currentPage={currentPage} paginationHandler={paginationHandler} />
         </>
       )}
     </div>
