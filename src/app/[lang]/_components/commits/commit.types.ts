@@ -1,3 +1,5 @@
+import { commitAndPaginationData } from '@/types/commits.types';
+
 export interface commitDataType {
   commit: {
     message: string;
@@ -20,7 +22,7 @@ export interface branchDataType {
 }
 
 export type commitListProps = {
-  commits: commitDataType[];
+  commits: commitAndPaginationData;
   branches: branchDataType[];
   selectedRepo: {
     owner: string;
