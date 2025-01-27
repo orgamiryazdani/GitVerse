@@ -38,7 +38,7 @@ export const RepoAnalysis: React.FC = () => {
     data: commits,
     isLoading: commitsLoading,
     refetch: commitsRefetch,
-  } = useGetCommits(selectedRepo.owner, selectedRepo.name);
+  } = useGetCommits({ owner: selectedRepo.owner, name: selectedRepo.name });
 
   useEffect(() => {
     if (repositories.length > 0) {
