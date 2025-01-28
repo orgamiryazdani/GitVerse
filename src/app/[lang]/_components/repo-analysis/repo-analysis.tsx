@@ -8,7 +8,6 @@ import { RepoList } from '../repositories';
 import { CommitList } from '../commits';
 import { useGetRepositories } from '@/hooks/useGetRepositories';
 import { useGetCommits } from '@/hooks/useGetCommits';
-import { useGetBranch } from '@/hooks/useGetBranch';
 import toast from 'react-hot-toast';
 import { RepoPlaceholder } from '../placeholders/repo';
 import { CommitsPlaceholder } from '../placeholders/commits';
@@ -27,12 +26,6 @@ export const RepoAnalysis: React.FC = () => {
     isLoading: repositoriesLoading,
     refetch: repositoriesRefetch,
   } = useGetRepositories(usernameRepoValue);
-
-  const {
-    data: branches,
-    isLoading: branchesLoading,
-    refetch: branchesRefetch,
-  } = useGetBranch(selectedRepo.owner, selectedRepo.name);
 
   const {
     data: commits,
@@ -66,10 +59,6 @@ export const RepoAnalysis: React.FC = () => {
     repositoriesRefetch();
   };
 
-  const getRepoBranches = async () => {
-    branchesRefetch();
-  };
-
   const getCommits = async () => {
     commitsRefetch();
   };
@@ -80,7 +69,6 @@ export const RepoAnalysis: React.FC = () => {
       owner: owner.login,
     });
     if (selectedRepo.name !== '' && selectedRepo.owner !== '') {
-      getRepoBranches();
       getCommits();
     }
     setActiveRepo(id);
@@ -119,11 +107,7 @@ export const RepoAnalysis: React.FC = () => {
         ) : (
           <RepoList repositories={repositories} repoHandler={repoHandler} activeRepo={activeRepo} />
         )}
-        {commitsLoading ? (
-          <CommitsPlaceholder />
-        ) : (
-          <CommitList selectedRepo={selectedRepo} branches={branches} commits={commits} />
-        )}
+        {commitsLoading ? <CommitsPlaceholder /> : <CommitList selectedRepo={selectedRepo} commits={commits} />}
       </section>
     </main>
   );
