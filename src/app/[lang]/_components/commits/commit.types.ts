@@ -23,7 +23,6 @@ export interface branchDataType {
 
 export type commitListProps = {
   commits: commitAndPaginationData;
-  branches: branchDataType[];
   selectedRepo: {
     owner: string;
     name: string;
