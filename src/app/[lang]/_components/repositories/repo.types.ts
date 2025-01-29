@@ -18,7 +18,7 @@ export type repoCardProps = repoDataType & {
 };
 
 export type repoListProps = {
-  repositories: repoDataType[];
+  usernameRepoValue: string;
   repoHandler: (id: number, owner: { login: string }, name: string) => void;
   activeRepo: number | null;
 };
