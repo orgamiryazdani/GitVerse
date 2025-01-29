@@ -4,7 +4,7 @@ import { useQuery, UseQueryResult } from '@tanstack/react-query';
 
 export const useGetBranch = ({ owner, name, page }: getBranchesApiProps) => {
   const queryResult: UseQueryResult<branchesAndPaginationData> = useQuery({
-    queryKey: ['branches', owner, name],
+    queryKey: ['branches', owner, name, page],
     queryFn: () => getBranchesApi({ owner, name, page }),
     enabled: !!owner && !!name,
   });
