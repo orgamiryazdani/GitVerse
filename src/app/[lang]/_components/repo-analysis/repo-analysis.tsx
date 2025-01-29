@@ -1,16 +1,12 @@
 'use client';
 import { Button } from '../button';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IoAnalytics } from 'react-icons/io5';
 import { RiSearch2Fill } from 'react-icons/ri';
 import { useSession } from 'next-auth/react';
 import { RepoList } from '../repositories';
 import { CommitList } from '../commits';
-import { useGetRepositories } from '@/hooks/useGetRepositories';
-import { useGetCommits } from '@/hooks/useGetCommits';
 import toast from 'react-hot-toast';
-import { RepoPlaceholder } from '../placeholders/repo';
-import { CommitsPlaceholder } from '../placeholders/commits';
 import { useDictionary } from '@/providers/DictionaryProvider';
 
 export const RepoAnalysis: React.FC = () => {
@@ -21,24 +17,6 @@ export const RepoAnalysis: React.FC = () => {
   const [activeRepo, setActiveRepo] = useState<number | null>(null);
   const dict = useDictionary();
 
-  const {
-    data: repositories,
-    isLoading: repositoriesLoading,
-    refetch: repositoriesRefetch,
-  } = useGetRepositories(usernameRepoValue);
-
-  const {
-    data: commits,
-    isLoading: commitsLoading,
-    refetch: commitsRefetch,
-  } = useGetCommits({ owner: selectedRepo.owner, name: selectedRepo.name });
-
-  useEffect(() => {
-    if (repositories.length > 0) {
-      repoHandler(repositories[0].id, repositories[0].owner, repositories[0].name);
-    }
-  }, [repositories]);
-
   const getUserRepos = async () => {
     const usernameExtraction = username.startsWith('https://github.com/') ? username.split('/')[3] : username;
     if (usernameExtraction == '') {
@@ -46,7 +24,6 @@ export const RepoAnalysis: React.FC = () => {
       return;
     }
     await setUsernameRepoValue(usernameExtraction);
-    repositoriesRefetch();
   };
 
   const getOwnerRepos = async () => {
@@ -56,11 +33,6 @@ export const RepoAnalysis: React.FC = () => {
       return;
     }
     await setUsernameRepoValue(ownerUsername);
-    repositoriesRefetch();
-  };
-
-  const getCommits = async () => {
-    commitsRefetch();
   };
 
   const repoHandler = async (id: number, owner: { login: string }, name: string) => {
@@ -68,9 +40,6 @@ export const RepoAnalysis: React.FC = () => {
       name,
       owner: owner.login,
     });
-    if (selectedRepo.name !== '' && selectedRepo.owner !== '') {
-      getCommits();
-    }
     setActiveRepo(id);
   };
 
@@ -102,12 +71,8 @@ export const RepoAnalysis: React.FC = () => {
         </Button>
       </section>
       <section className="flex items-center justify-between flex-col md:flex-row md:mt-5 mt-3 pb-5 md:pb-0 w-full h-auto md:px-8 px-5 gap-x-7 gap-y-5">
-        {repositoriesLoading ? (
-          <RepoPlaceholder />
-        ) : (
-          <RepoList repositories={repositories} repoHandler={repoHandler} activeRepo={activeRepo} />
-        )}
-        {commitsLoading ? <CommitsPlaceholder /> : <CommitList selectedRepo={selectedRepo} commits={commits} />}
+        <RepoList usernameRepoValue={usernameRepoValue} repoHandler={repoHandler} activeRepo={activeRepo} />
+        <CommitList selectedRepo={selectedRepo} />
       </section>
     </main>
   );
