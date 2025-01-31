@@ -4,7 +4,6 @@ import React from 'react';
 export const CommitsPlaceholder: React.FC = () => {
   return (
     <div
-      dir="ltr"
       role="status"
       className="md:w-3/5 w-full h-96 rounded-xl animate-pulse dark:bg-dark-300 bg-light-300 border-[5px] dark:border-dark-300 border-light-300 overflow-y-auto flex flex-wrap gap-3 p-2"
     >

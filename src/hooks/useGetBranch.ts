@@ -1,15 +1,15 @@
-import { branchDataType } from '@/app/[lang]/_components/commits/commit.types';
 import { getBranchesApi } from '@/services/branchesService';
+import { branchesAndPaginationData, getBranchesApiProps } from '@/types/branches.type';
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 
-export const useGetBranch = (owner: string, name: string) => {
-  const queryResult: UseQueryResult<branchDataType[]> = useQuery({
-    queryKey: ['branches', owner, name],
-    queryFn: () => getBranchesApi(owner, name),
+export const useGetBranch = ({ owner, name, page }: getBranchesApiProps) => {
+  const queryResult: UseQueryResult<branchesAndPaginationData> = useQuery({
+    queryKey: ['branches', owner, name, page],
+    queryFn: () => getBranchesApi({ owner, name, page }),
     enabled: !!owner && !!name,
   });
 
-  const { data = [], isLoading, refetch } = queryResult;
+  const { data, isLoading, refetch } = queryResult;
 
   return { data, isLoading, refetch };
 };

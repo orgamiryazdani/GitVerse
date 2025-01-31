@@ -3,6 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
 import { IoLanguageOutline } from 'react-icons/io5';
 import { FramerMotionAnimation } from '../framer-motion';
+import { useLang } from '@/providers/language-provider';
 
 const enVariants = {
   hidden: {
@@ -47,12 +48,12 @@ type props = {
   showLanguageHandler: () => void;
 };
 
-const ChangeLanguage = ({ lang, showLanguage, showLanguageHandler }: lang & props) => {
+const ChangeLanguage = ({ showLanguage, showLanguageHandler }: props) => {
   const icons = [
     { id: 1, name: 'en', variants: enVariants },
     { id: 2, name: 'fa', variants: faVariants },
   ];
-
+  const lang = useLang();
   const router = useRouter();
   const pathname = usePathname();
 

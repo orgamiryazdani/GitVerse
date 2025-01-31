@@ -17,9 +17,10 @@ export const RepoCard: React.FC<repoCardProps> = ({
 }) => {
   return (
     <div
+      dir="ltr"
       key={id}
       onClick={() => repoHandler(id, owner, name)}
-      className={`w-full h-auto cursor-pointer dark:bg-dark-400 bg-light-400 rounded-2xl mr-1 p-3 ${activeRepo === id ? 'border-2 dark:border-light-400 border-light-100' : ''}`}
+      className={`w-full h-auto cursor-pointer dark:bg-dark-400 bg-light-400 rounded-2xl mx-1 p-3 ${activeRepo === id ? 'border-2 dark:border-light-400 border-light-100' : ''}`}
     >
       <div className="flex items-center gap-x-3">
         <p className="dark:text-white text-dark-100 font-bold">{name}</p>

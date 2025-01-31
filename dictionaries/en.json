@@ -22,5 +22,8 @@
   "select_a_repository": "Select a repository",
   "no_activity_found": "No activity found",
   "please_enter_a_value": "Please enter a value",
-  "please_log_in": "Please log in"
+  "please_log_in": "Please log in",
+  "search": "search...",
+  "this_result_was_not_found": "This result was not found",
+  "more": "more"
 }
