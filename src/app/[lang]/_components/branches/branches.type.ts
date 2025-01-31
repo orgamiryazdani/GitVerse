@@ -3,5 +3,6 @@ export type branchesProps = {
     owner: string;
     name: string;
   };
-  filterHandler: (sha: string) => void;
+  selectedBrach: string;
+  filterHandler: (sha: string, name: string) => void;
 };
