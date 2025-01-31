@@ -52,7 +52,7 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
       {isLoading ? (
         <CommitsPlaceholder />
       ) : (
-        <div className="md:w-3/5 w-full h-96 rounded-xl dark:bg-dark-300 bg-light-300 border-[5px] dark:border-dark-300 border-light-300 overflow-y-auto flex flex-wrap gap-3 p-2 pt-0">
+        <div className="lg:w-3/5 w-full h-96 rounded-xl dark:bg-dark-300 bg-light-300 border-[5px] dark:border-dark-300 border-light-300 overflow-y-auto flex flex-wrap gap-3 p-2 pt-0">
           {data.length == 0 ? (
             <div className="w-full font-semibold text-white h-full text-xl flex gap-y-1 flex-col items-center justify-center">
               <p>{dict.select_a_repository}</p>
