@@ -22,5 +22,8 @@
   "select_a_repository": "یک ریپازیتوری انتخاب کنید",
   "no_activity_found": "هیچ فعالیتی پیدا نشد",
   "please_enter_a_value": "لطفا مقداری وارد کنید",
-  "please_log_in": "لطفا وارد شوید"
+  "please_log_in": "لطفا وارد شوید",
+  "search": "جستجو...",
+  "this_result_was_not_found": "نتیجه ای یافت نشد",
+  "more": "بیشتر"
 }
