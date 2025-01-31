@@ -70,7 +70,7 @@ export const RepoAnalysis: React.FC = () => {
           <IoAnalytics className="text-2xl" />
         </Button>
       </section>
-      <section className="flex items-center justify-between flex-col md:flex-row md:mt-5 mt-3 pb-5 md:pb-0 w-full h-auto md:px-8 px-5 gap-x-7 gap-y-5">
+      <section className="flex items-center justify-between flex-col lg:flex-row lg:mt-5 mt-3 pb-5 lg:pb-0 w-full h-auto lg:px-8 px-5 gap-x-7 gap-y-5">
         <RepoList usernameRepoValue={usernameRepoValue} repoHandler={repoHandler} activeRepo={activeRepo} />
         <CommitList selectedRepo={selectedRepo} />
       </section>

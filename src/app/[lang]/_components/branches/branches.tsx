@@ -67,7 +67,7 @@ export const Branches: React.FC<branchesProps> = ({ selectedRepo, filterHandler,
             <MdOutlineArrowDropDown className="text-2xl" />
           </div>
           {showBranches && (
-            <div className="w-full p-2 max-h-[310px] h-auto rounded-lg dark:bg-dark-400 bg-light-400 absolute top-12">
+            <div className="w-full p-2 lg:max-h-[310px] max-h-64 h-auto rounded-lg dark:bg-dark-400 bg-light-400 absolute top-12">
               <input
                 onChange={(e) => searchHandler(e.target.value)}
                 type="search"
@@ -76,7 +76,7 @@ export const Branches: React.FC<branchesProps> = ({ selectedRepo, filterHandler,
               />
               <div
                 dir="ltr"
-                className="w-full max-h-56 mt-3 overflow-y-auto flex flex-col gap-y-2 text-sm dark:text-white"
+                className="w-full max-h-44 lg:max-h-56 mt-3 overflow-y-auto flex flex-col gap-y-2 text-sm dark:text-white"
               >
                 {branches.length == 0 ? (
                   <p className="h-6 flex items-center justify-center">{dict.this_result_was_not_found}</p>
