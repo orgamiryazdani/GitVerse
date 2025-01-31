@@ -1,17 +1,18 @@
 'use client';
-import { useDictionary } from '@/providers/DictionaryProvider';
+import { useDictionary } from '@/providers/dictionary-provider';
+import { useLang } from '@/providers/language-provider';
 import { NavigationMenuItem } from '@/types/navigation-menu-item';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CiMenuFries } from 'react-icons/ci';
 
-export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () => void; lang: 'fa' | 'en' }> = ({
+export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () => void }> = ({
   showMenu,
   showMenuHandler,
-  lang,
 }) => {
   const pathname = usePathname();
   const dict = useDictionary();
+  const lang = useLang();
 
   const menuItems: NavigationMenuItem[] = [
     {

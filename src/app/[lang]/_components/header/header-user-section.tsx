@@ -5,7 +5,7 @@ import { Button } from '../button';
 import { SiGithub } from 'react-icons/si';
 import Image from 'next/image';
 import truncateText from '@/utils/truncateText';
-import { useDictionary } from '@/providers/DictionaryProvider';
+import { useDictionary } from '@/providers/dictionary-provider';
 import Link from 'next/link';
 
 const HeaderUserSection: React.FC = () => {

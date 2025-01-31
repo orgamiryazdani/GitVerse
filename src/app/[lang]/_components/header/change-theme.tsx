@@ -3,7 +3,7 @@ import { GiUbisoftSun } from 'react-icons/gi';
 import { RiMoonCloudyLine } from 'react-icons/ri';
 import { AnimatePresence } from 'framer-motion';
 import { FramerMotionAnimation } from '../framer-motion';
-import { useTheme } from '@/providers/ThemeProvider';
+import { useTheme } from '@/providers/theme-provider';
 
 const moonVariants = {
   hidden: {
