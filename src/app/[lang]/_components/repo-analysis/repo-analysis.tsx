@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { RepoList } from '../repositories';
 import { CommitList } from '../commits';
 import toast from 'react-hot-toast';
-import { useDictionary } from '@/providers/DictionaryProvider';
+import { useDictionary } from '@/providers/dictionary-provider';
 
 export const RepoAnalysis: React.FC = () => {
   const session = useSession();
