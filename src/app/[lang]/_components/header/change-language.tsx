@@ -1,9 +1,10 @@
-import { lang } from '@/types/languages';
 import { AnimatePresence } from 'framer-motion';
 import { usePathname, useRouter } from 'next/navigation';
 import { IoLanguageOutline } from 'react-icons/io5';
 import { FramerMotionAnimation } from '../framer-motion';
 import { useLang } from '@/providers/language-provider';
+import useOutsideClick from '@/hooks/useOutsideClick';
+import { useState } from 'react';
 
 const enVariants = {
   hidden: {
@@ -43,12 +44,7 @@ const faVariants = {
   },
 };
 
-type props = {
-  showLanguage: boolean;
-  showLanguageHandler: () => void;
-};
-
-const ChangeLanguage = ({ showLanguage, showLanguageHandler }: props) => {
+const ChangeLanguage: React.FC = () => {
   const icons = [
     { id: 1, name: 'en', variants: enVariants },
     { id: 2, name: 'fa', variants: faVariants },
@@ -56,6 +52,9 @@ const ChangeLanguage = ({ showLanguage, showLanguageHandler }: props) => {
   const lang = useLang();
   const router = useRouter();
   const pathname = usePathname();
+  const ref = useOutsideClick<HTMLDivElement>(() => setShowLanguage(false));
+  const [showLanguage, setShowLanguage] = useState(false);
+  const showLanguageHandler = () => setShowLanguage(!showLanguage);
 
   const handleChangeLanguage = (newLocale: string) => {
     const html = document.getElementById('html');
@@ -73,7 +72,7 @@ const ChangeLanguage = ({ showLanguage, showLanguageHandler }: props) => {
   };
 
   return (
-    <div className="relative w-8 flex items-center justify-center">
+    <div ref={ref} className="relative w-8 flex items-center justify-center">
       <IoLanguageOutline onClick={showLanguageHandler} className="text-3xl cursor-pointer" />
 
       <AnimatePresence>
