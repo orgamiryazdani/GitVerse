@@ -63,7 +63,7 @@ export const RepoAnalysis: React.FC = () => {
   };
 
   return (
-    <main className="max-w-8xl w-full h-screen mt-3">
+    <main id="repo-analysis" className="max-w-8xl w-full h-screen mt-3">
       <section className="w-full h-20 flex items-center justify-center flex-col px-10">
         <h2 className="md:text-2xl text-sm font-bold dark:text-white">{dict.repo_analysis_title}</h2>
       </section>
