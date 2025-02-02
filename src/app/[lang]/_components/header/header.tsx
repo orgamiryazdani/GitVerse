@@ -7,24 +7,7 @@ import ChangeLanguage from './change-language';
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showLanguage, setShowLanguage] = useState(false);
-  const [showTheme, setShowTheme] = useState(false);
-
   const showMenuHandler = () => setShowMenu(!showMenu);
-
-  const showLanguageHandler = () => {
-    if (showTheme) {
-      setShowTheme(false);
-    }
-    setShowLanguage(!showLanguage);
-  };
-
-  const showThemeHandler = () => {
-    if (showLanguage) {
-      setShowLanguage(false);
-    }
-    setShowTheme(!showTheme);
-  };
 
   return (
     <header
@@ -33,8 +16,8 @@ export const Header = () => {
       <div className="container w-full flex items-center justify-between max-w-8xl">
         <TopNavigation showMenu={showMenu} showMenuHandler={showMenuHandler} />
         <span className="lg:mx-10 mx-5 flex items-center lg:gap-x-8 gap-x-5">
-          <ChangeTheme showTheme={showTheme} showThemeHandler={showThemeHandler} />
-          <ChangeLanguage showLanguage={showLanguage} showLanguageHandler={showLanguageHandler} />
+          <ChangeTheme />
+          <ChangeLanguage />
           <HeaderUserSection />
         </span>
       </div>
