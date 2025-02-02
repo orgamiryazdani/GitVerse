@@ -7,17 +7,19 @@ import Image from 'next/image';
 import truncateText from '@/utils/truncateText';
 import { useDictionary } from '@/providers/dictionary-provider';
 import Link from 'next/link';
+import { useLang } from '@/providers/language-provider';
 
 const HeaderUserSection: React.FC = () => {
   const { data: session, status } = useSession();
   const dict = useDictionary();
+  const lang = useLang();
 
   return (
     <div>
       {status === 'loading' ? (
         <div className="w-[177px] h-12 bg-dark-300 rounded-xl blur-md"></div>
       ) : session?.user ? (
-        <Link href="/fa/profile" className="flex items-center gap-x-10">
+        <Link href={`/${lang}/profile`} className="flex items-center gap-x-10">
           <div className="flex items-center justify-center gap-x-3">
             <Image
               width={45}
