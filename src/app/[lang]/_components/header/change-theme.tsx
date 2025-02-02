@@ -4,6 +4,8 @@ import { RiMoonCloudyLine } from 'react-icons/ri';
 import { AnimatePresence } from 'framer-motion';
 import { FramerMotionAnimation } from '../framer-motion';
 import { useTheme } from '@/providers/theme-provider';
+import useOutsideClick from '@/hooks/useOutsideClick';
+import { useState } from 'react';
 
 const moonVariants = {
   hidden: {
@@ -43,8 +45,11 @@ const sunVariants = {
   },
 };
 
-const ChangeTheme = ({ showTheme, showThemeHandler }: { showTheme: boolean; showThemeHandler: () => void }) => {
+const ChangeTheme: React.FC = () => {
   const { theme, changeTheme } = useTheme();
+  const [showTheme, setShowTheme] = useState(false);
+  const ref = useOutsideClick<HTMLDivElement>(() => setShowTheme(false));
+  const showThemeHandler = () => setShowTheme(!showTheme);
 
   const icons = [
     { id: 1, name: 'light', icon: <GiUbisoftSun />, variants: sunVariants },
@@ -52,7 +57,7 @@ const ChangeTheme = ({ showTheme, showThemeHandler }: { showTheme: boolean; show
   ] as const;
 
   return (
-    <div className="relative w-7 flex items-center justify-center">
+    <div ref={ref} className="relative w-7 flex items-center justify-center">
       {theme === 'dark' ? (
         <RiMoonCloudyLine className="text-3xl cursor-pointer absolute" onClick={showThemeHandler} />
       ) : (
