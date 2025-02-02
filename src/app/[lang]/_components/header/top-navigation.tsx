@@ -2,8 +2,7 @@
 import { useDictionary } from '@/providers/dictionary-provider';
 import { useLang } from '@/providers/language-provider';
 import { NavigationMenuItem } from '@/types/navigation-menu-item';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { CiMenuFries } from 'react-icons/ci';
 
 export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () => void }> = ({
@@ -13,6 +12,7 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
   const pathname = usePathname();
   const dict = useDictionary();
   const lang = useLang();
+  const router = useRouter();
 
   const menuItems: NavigationMenuItem[] = [
     {
@@ -20,12 +20,12 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
       href: '/',
     },
     {
-      title: dict.followers_analysis,
-      href: '/user-analysis',
+      title: dict.repository_analysis_and_activities,
+      href: `#repo-analysis`,
     },
     {
-      title: dict.activities_analysis,
-      href: '/repo-analysis',
+      title: dict.about_us,
+      href: `/${lang}/about-us`,
     },
   ];
 
@@ -33,7 +33,15 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
     if (href === '/') {
       return pathname === '/' || pathname === `/${lang}`;
     }
-    return pathname === href || pathname === `/${lang}${href}`;
+    return pathname === href || pathname === `/${href}`;
+  };
+
+  const changePage = (href: string) => {
+    if (pathname === '/' || pathname === `/${lang}`) {
+      router.push(href);
+    } else {
+      router.push(`/${lang}${href}`);
+    }
   };
 
   return (
@@ -45,13 +53,16 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
         {menuItems.map((item) => {
           const isActive = isActiveRoute(item.href);
           return (
-            <Link
+            <a
+              onClick={() => {
+                showMenuHandler();
+                changePage(item.href);
+              }}
               key={`navigation-${item.href}`}
-              href={item.href}
               className={`w-full h-12 px-3 flex items-center dark:bg-dark-400 bg-light-300 rounded-lg ${isActive ? 'dark:text-light-300 text-dark-400' : 'dark:text-light-100 text-dark-100'}`}
             >
               <div>{showMenu && item.title}</div>
-            </Link>
+            </a>
           );
         })}
       </menu>
@@ -65,14 +76,14 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
           const isActive = isActiveRoute(item.href);
           return (
             <li key={`navigation-${item.href}`}>
-              <Link
-                href={item.href}
-                className={`dark:hover:text-light-100 dark:text-light-100 transition-colors pb-2 ${
+              <a
+                onClick={() => changePage(item.href)}
+                className={`dark:hover:text-light-100 dark:text-light-100 cursor-pointer transition-colors pb-2 text-sm lg:text-base ${
                   isActive && 'border-b-2 dark:text-dark-100 dark:border-light-100 font-bold'
                 }`}
               >
                 {item.title}
-              </Link>
+              </a>
             </li>
           );
         })}

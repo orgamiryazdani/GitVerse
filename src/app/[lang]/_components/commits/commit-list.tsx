@@ -7,6 +7,7 @@ import { useGetCommits } from '@/hooks/useGetCommits';
 import { Pagination } from '../pagination';
 import { Branches } from '../branches';
 import { CommitsPlaceholder } from '../placeholders/commits';
+import { motion } from 'framer-motion';
 
 export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
   const [sha, setSha] = useState('');
@@ -16,6 +17,7 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
   const [commitSearch, setCommitSearch] = useState<commitDataType[] | []>([]);
   const dict = useDictionary();
   const [selectedBrach, setSelectedBranch] = useState('');
+  const [showAnimation, setShowAnimation] = useState(false);
 
   const url = commits?.config?.url || '';
   const pageMatch = url?.match(/page=(\d+)/);
@@ -47,12 +49,24 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
     await setSha(value);
   };
 
+  useEffect(() => {
+    if (showAnimation == false) {
+      setShowAnimation(true);
+    }
+  }, []);
+
   return (
     <>
       {isLoading ? (
         <CommitsPlaceholder />
       ) : (
-        <div className="lg:w-3/5 w-full h-96 rounded-xl dark:bg-dark-300 bg-light-300 border-[5px] dark:border-dark-300 border-light-300 overflow-y-auto flex flex-wrap gap-3 p-2 pt-0">
+        <motion.div
+          initial={!showAnimation ? { opacity: 0, y: 50 } : { opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="lg:w-3/5 w-full h-96 rounded-xl dark:bg-dark-300 bg-light-300 border-[5px] dark:border-dark-300 border-light-300 overflow-y-auto flex flex-wrap gap-3 p-2 pt-0"
+        >
           {data.length == 0 ? (
             <div className="w-full font-semibold text-white h-full text-xl flex gap-y-1 flex-col items-center justify-center">
               <p>{dict.select_a_repository}</p>
@@ -83,7 +97,7 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
               <Pagination linkHeader={linkHeader} currentPage={currentPage} paginationHandler={paginationHandler} />
             </>
           )}
-        </div>
+        </motion.div>
       )}
     </>
   );
