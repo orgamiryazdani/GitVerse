@@ -4,6 +4,8 @@ import { Counter } from '../counter';
 import { FramerMotionAnimation } from '../framer-motion';
 import { BsChevronCompactDown } from 'react-icons/bs';
 import { lang } from '@/types/languages';
+import Link from 'next/link';
+import { signIn } from '@/auth';
 
 const arrowVariants = {
   initial: {
@@ -35,10 +37,19 @@ export const HomeHeroSection: React.FC<props> = ({ dict, lang }) => {
           <h1 className="lg:text-5xl text-2xl font-bold">{dict.platform_title}</h1>
           <h2 className="lg:text-2xl text-sm font-light lg:leading-[55px] leading-10">{dict.platform_description}</h2>
           <div className="flex flex-col lg:flex-row lg:gap-x-5 gap-y-5 w-full">
-            <Button variant="light-200" isOutline className="font-bold text-lg">
-              {dict.try_for_free}
-            </Button>
-            <Button className="font-bold text-lg" variant="light-200">
+            <Link href="#repo-analysis" className="w-full md:w-auto">
+              <Button variant="light-200" isOutline className="font-bold text-lg w-full lg:w-auto">
+                {dict.try_for_free}
+              </Button>
+            </Link>
+            <Button
+              onClick={async () => {
+                'use server';
+                await signIn('github');
+              }}
+              className="font-bold text-lg"
+              variant="light-200"
+            >
               {dict.login_with_github}
             </Button>
           </div>
