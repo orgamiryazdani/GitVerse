@@ -23,7 +23,7 @@ export default async function Home({ params }: { params: Params }) {
   const dict = await getDictionary(lang);
 
   return (
-    <main className="min-h-[89vh]  w-vw flex items-center justify-center flex-col">
+    <main className="min-h-[89vh] w-vw flex items-center justify-center flex-col">
       <HomeHeroSection dict={dict} lang={lang} />
       <RepoAnalysis />
     </main>
