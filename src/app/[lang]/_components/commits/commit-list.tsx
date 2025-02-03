@@ -8,6 +8,7 @@ import { Pagination } from '../pagination';
 import { Branches } from '../branches';
 import { CommitsPlaceholder } from '../placeholders/commits';
 import { motion } from 'framer-motion';
+import { Modal } from '../modal';
 
 export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
   const [sha, setSha] = useState('');
@@ -18,6 +19,7 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
   const dict = useDictionary();
   const [selectedBrach, setSelectedBranch] = useState('');
   const [showAnimation, setShowAnimation] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const url = commits?.config?.url || '';
   const pageMatch = url?.match(/page=(\d+)/);
@@ -55,8 +57,20 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
     }
   }, []);
 
+  const onClose = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
+      {/* activity modal */}
+      <Modal title="src/app/[lang]/_components/header/header-user-section.tsx" open={showModal} onClose={onClose}>
+        <div className="flex w-full h-full">
+          <div className="w-1/2 h-full p-3 border-r border-white">before</div>
+          <div className="w-1/2 h-full p-3">after</div>
+        </div>
+      </Modal>
+      {/* commits list */}
       {isLoading ? (
         <CommitsPlaceholder />
       ) : (
@@ -90,7 +104,7 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
                   </p>
                 ) : (
                   commitSearch.map(({ commit, sha, committer }) => (
-                    <CommitCard key={commit.message + sha} commit={commit} committer={committer} />
+                    <CommitCard showModal={onClose} key={commit.message + sha} commit={commit} committer={committer} />
                   ))
                 )}
               </div>
