@@ -26,4 +26,6 @@ export type commitListProps = {
   };
 };
 
-export type commitCardProps = Omit<commitDataType, 'sha'>;
+export type commitCardProps = Omit<commitDataType, 'sha'> & {
+  showModal: () => void;
+};
