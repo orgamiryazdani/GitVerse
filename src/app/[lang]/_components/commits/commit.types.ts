@@ -6,6 +6,7 @@ export interface commitDataType {
     };
   };
   sha: string;
+  html_url: string;
   committer: {
     login: string;
     avatar_url: string;
@@ -26,6 +27,21 @@ export type commitListProps = {
   };
 };
 
-export type commitCardProps = Omit<commitDataType, 'sha'> & {
+export type commitCardProps = commitDataType & {
   showModal: () => void;
 };
+
+export type commitActivityProps = {
+  onClose: () => void;
+  showModal: boolean;
+};
+
+export interface commitActivityData {
+  data: {
+    files: {
+      filename: string;
+      patch: string;
+    }[];
+    html_url: string;
+  };
+}
