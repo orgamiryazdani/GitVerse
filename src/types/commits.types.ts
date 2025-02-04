@@ -18,3 +18,9 @@ export type getCommitsApiProps = {
   sha?: string;
   page?: number;
 };
+
+export type activitiesProps = {
+  repoName: string;
+  commitSha: string;
+  owner: string;
+};
