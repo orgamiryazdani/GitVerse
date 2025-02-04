@@ -18,3 +18,15 @@ export const CommitsPlaceholder: React.FC = () => {
     </div>
   );
 };
+
+export const CommitActivityPlaceholder: React.FC = () => {
+  return (
+    <div role="status" className="w-full h-96 rounded-xl animate-pulse overflow-y-auto gap-3 flex flex-col">
+      <div className="h-10 dark:bg-light-100/20 bg-dark-100/20 rounded-lg w-full"></div>
+      <div className="w-full flex h-full gap-x-3">
+        <div className="h-full dark:bg-light-100/20 bg-dark-100/20 rounded-lg w-1/2"></div>
+        <div className="h-full dark:bg-light-100/20 bg-dark-100/20 rounded-lg w-1/2"></div>
+      </div>
+    </div>
+  );
+};
