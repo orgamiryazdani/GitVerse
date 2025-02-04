@@ -8,7 +8,7 @@ import { Pagination } from '../pagination';
 import { Branches } from '../branches';
 import { CommitsPlaceholder } from '../placeholders/commits';
 import { motion } from 'framer-motion';
-import { Modal } from '../modal';
+import CommitActivity from './commit-activity';
 
 export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
   const [sha, setSha] = useState('');
@@ -63,14 +63,7 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
 
   return (
     <>
-      {/* activity modal */}
-      <Modal title="src/app/[lang]/_components/header/header-user-section.tsx" open={showModal} onClose={onClose}>
-        <div className="flex w-full h-full">
-          <div className="w-1/2 h-full p-3 border-r border-white">before</div>
-          <div className="w-1/2 h-full p-3">after</div>
-        </div>
-      </Modal>
-      {/* commits list */}
+      <CommitActivity showModal={showModal} onClose={onClose} />
       {isLoading ? (
         <CommitsPlaceholder />
       ) : (
@@ -103,8 +96,15 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
                     {dict.this_result_was_not_found}
                   </p>
                 ) : (
-                  commitSearch.map(({ commit, sha, committer }) => (
-                    <CommitCard showModal={onClose} key={commit.message + sha} commit={commit} committer={committer} />
+                  commitSearch.map(({ commit, sha, committer, html_url }) => (
+                    <CommitCard
+                      showModal={onClose}
+                      key={commit.message + sha}
+                      commit={commit}
+                      committer={committer}
+                      sha={sha}
+                      html_url={html_url}
+                    />
                   ))
                 )}
               </div>
