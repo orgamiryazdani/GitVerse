@@ -26,7 +26,7 @@ function isProtectedRoute(pathname: string): boolean {
 }
 
 function isAuthenticated(request: NextRequest): boolean {
-  return request.cookies.has('authjs.session-token');
+  return request.cookies.has('__Secure-authjs.session-token');
 }
 
 function getBasePathWithLocale(pathname: string): string {
