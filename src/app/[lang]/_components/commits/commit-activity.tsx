@@ -1,11 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Modal } from '../modal';
-import DiffViewer from 'react-diff-viewer';
 import { useGetCommitsActivities } from '@/hooks/useGetCommits';
 import { commitActivityProps } from './commit.types';
 import { useSearchParams } from 'next/navigation';
 import { CommitActivityPlaceholder } from '../placeholders/commits';
+import ReactDiffViewer from 'react-diff-viewer-continued';
 
 const CommitActivity: React.FC<commitActivityProps> = ({ showModal, onClose }) => {
   const searchParams = useSearchParams();
@@ -59,7 +59,7 @@ const CommitActivity: React.FC<commitActivityProps> = ({ showModal, onClose }) =
           files.map((file, index) => (
             <div key={index} className="border-b text-white overflow-auto">
               <h3 className="font-bold text-sm mb-2">{file.filename}</h3>
-              <DiffViewer oldValue={file.oldCode} newValue={file.newCode} splitView={true} />
+              <ReactDiffViewer oldValue={file.oldCode} newValue={file.newCode} splitView={true} />
             </div>
           ))
         )}
