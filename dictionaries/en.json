@@ -26,5 +26,6 @@
   "search": "search...",
   "this_result_was_not_found": "This result was not found",
   "more": "more",
-  "activities": "Activities"
+  "activities": "Activities",
+  "logout": "logout"
 }
