@@ -8,6 +8,7 @@ import { Pagination } from '../pagination';
 import { Branches } from '../branches';
 import { CommitsPlaceholder } from '../placeholders/commits';
 import { motion } from 'framer-motion';
+import CommitActivity from './commit-activity';
 
 export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
   const [sha, setSha] = useState('');
@@ -18,6 +19,7 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
   const dict = useDictionary();
   const [selectedBrach, setSelectedBranch] = useState('');
   const [showAnimation, setShowAnimation] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const url = commits?.config?.url || '';
   const pageMatch = url?.match(/page=(\d+)/);
@@ -55,8 +57,13 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
     }
   }, []);
 
+  const onClose = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <>
+      <CommitActivity showModal={showModal} onClose={onClose} />
       {isLoading ? (
         <CommitsPlaceholder />
       ) : (
@@ -89,8 +96,15 @@ export const CommitList: React.FC<commitListProps> = ({ selectedRepo }) => {
                     {dict.this_result_was_not_found}
                   </p>
                 ) : (
-                  commitSearch.map(({ commit, sha, committer }) => (
-                    <CommitCard key={commit.message + sha} commit={commit} committer={committer} />
+                  commitSearch.map(({ commit, sha, committer, html_url }) => (
+                    <CommitCard
+                      showModal={onClose}
+                      key={commit.message + sha}
+                      commit={commit}
+                      committer={committer}
+                      sha={sha}
+                      html_url={html_url}
+                    />
                   ))
                 )}
               </div>
