@@ -6,12 +6,14 @@ import { commitActivityProps } from './commit.types';
 import { useSearchParams } from 'next/navigation';
 import { CommitActivityPlaceholder } from '../placeholders/commits';
 import ReactDiffViewer from 'react-diff-viewer-continued';
+import { useDictionary } from '@/providers/dictionary-provider';
 
 const CommitActivity: React.FC<commitActivityProps> = ({ showModal, onClose }) => {
   const searchParams = useSearchParams();
   const owner = searchParams.get('owner') || '';
   const commitSha = searchParams.get('sha') || '';
   const repoName = searchParams.get('repo') || '';
+  const dict = useDictionary();
 
   const { data, isLoading } = useGetCommitsActivities({ repoName, commitSha, owner });
   const [files, setFiles] = useState<{ filename: string; oldCode: string; newCode: string }[]>([]);
@@ -51,7 +53,7 @@ const CommitActivity: React.FC<commitActivityProps> = ({ showModal, onClose }) =
   };
 
   return (
-    <Modal title="Commit Changes" open={showModal} onClose={onClose}>
+    <Modal title={dict.activities} open={showModal} onClose={onClose}>
       <div className="flex flex-col w-full h-full gap-6 border-8 dark:border-dark-400 border-light-400 rounded-xl">
         {isLoading ? (
           <CommitActivityPlaceholder />

@@ -6,10 +6,7 @@ export const Modal: React.FC<ModalProps> = ({ children, title, open, onClose }) 
   const ref = useOutsideClick<HTMLDivElement>(onClose);
   return (
     open && (
-      <div
-        dir="ltr"
-        className="fixed backdrop-blur-sm z-20 w-full h-full dark:bg-dark-100/70 bg-light-300/70 top-0 left-0 flex items-center justify-center"
-      >
+      <div className="fixed backdrop-blur-sm z-20 w-full h-full dark:bg-dark-100/70 bg-light-300/70 top-0 left-0 flex items-center justify-center">
         <div
           ref={ref}
           className="w-[95%] max-h-[95%] relative border-4 dark:border-dark-400 border-light-400 overflow-auto dark:bg-dark-400 bg-light-400 rounded-md"
@@ -18,7 +15,9 @@ export const Modal: React.FC<ModalProps> = ({ children, title, open, onClose }) 
             <p>{title}</p>
             <IoCloseCircleOutline className="text-xl cursor-pointer" onClick={onClose} />
           </div>
-          <div className="w-full h-[94%]">{children}</div>
+          <div dir="ltr" className="w-full h-[94%]">
+            {children}
+          </div>
         </div>
       </div>
     )
