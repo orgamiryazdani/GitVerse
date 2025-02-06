@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import './globals.css';
 import { Figtree } from 'next/font/google';
 import localFont from 'next/font/local';
@@ -65,6 +66,13 @@ export default async function RootLayout({
     <SessionProvider>
       <DictionaryProvider dictionary={dictionary}>
         <html dir={lang === 'en' ? 'ltr' : 'rtl'} lang={lang} className={`dark ${figtree.variable} ${vazir.variable}`}>
+          <head>
+            <Script
+              defer
+              src="https://cloud.umami.is/script.js"
+              data-website-id="6201dddf-dc44-472f-a785-406233d2cd48"
+            />
+          </head>
           <body className="min-h-screen bg-light-100 dark:bg-dark-100">
             <ThemeProvider>
               <LangProvider lang={lang}>
