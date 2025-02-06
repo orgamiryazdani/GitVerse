@@ -72,6 +72,7 @@ export default async function RootLayout({
               src="https://cloud.umami.is/script.js"
               data-website-id="6201dddf-dc44-472f-a785-406233d2cd48"
             />
+            <meta name="google-site-verification" content="7B19qKwjt8LPJvF0ftJYKiqIAYtqUw9COcuu-yKm7n0" />
           </head>
           <body className="min-h-screen bg-light-100 dark:bg-dark-100">
             <ThemeProvider>
