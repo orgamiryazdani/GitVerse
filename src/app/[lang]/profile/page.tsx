@@ -37,7 +37,7 @@ const Profile = () => {
             </div>
           </div>
           <Button
-            onClick={() => signOut({ callbackUrl: '/' })}
+            onClick={() => signOut({ callbackUrl: `/${lang}` })}
             variant="light-300"
             className="md:bottom-6 bottom-3 md:right-5 right-1/2 translate-x-1/2 md:translate-x-0 absolute"
           >
