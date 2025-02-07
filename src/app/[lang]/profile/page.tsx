@@ -11,7 +11,7 @@ const Profile = () => {
 
   return (
     <div className="w-full h-[89vh] flex items-center justify-center">
-      <div className="md:w-3/6 w-80 md:h-80 h-96 dark:bg-dark-400 bg-light-400 relative rounded-xl overflow-hidden">
+      <div className="md:w-3/6 max-w-[800px] w-80 md:h-80 h-96 dark:bg-dark-400 bg-light-400 relative rounded-xl overflow-hidden">
         <div className="w-full md:h-2/5 h-1/3 profile-header-bg"></div>
         <div
           dir="ltr"
