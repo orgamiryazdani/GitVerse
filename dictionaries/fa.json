@@ -37,5 +37,9 @@
   "email_placeholder": "ایمیل شما",
   "name_placeholder": "نام شما",
   "message_placeholder": "متن پیام",
-  "send_email_btn_text": "ارسال پیام"
+  "send_email_btn_text": "ارسال پیام",
+  "meta_title_about": "درباره ما | راه های ارتباطی گیت ورس",
+  "meta_description_about": "ارسال ایمیل برای گیت ورس ، مشاهده شبکه های اجتماعی گیت ورس و متصل شدن به پشتیبانی",
+  "meta_title_profile": "پروفایل شما",
+  "meta_description_profile": "امکان مشاهده اطلاعات پروفایل گیت هاب کاربر"
 }

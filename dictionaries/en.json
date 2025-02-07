@@ -37,5 +37,9 @@
   "email_placeholder": "Your email",
   "name_placeholder": "Your name",
   "message_placeholder": "Message text",
-  "send_email_btn_text": "Send message"
+  "send_email_btn_text": "Send message",
+  "meta_title_about": "About us | Gateway communication channels",
+  "meta_description_about": "Send email to GitHub, view GitHub social networks, and connect to support",
+  "meta_title_profile": "Your profile",
+  "meta_description_profile": "The ability to view the user's Github profile information"
 }
