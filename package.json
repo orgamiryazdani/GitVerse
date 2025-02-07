@@ -15,6 +15,7 @@
     "@types/negotiator": "^0.6.3",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
+    "emailjs-com": "^3.2.0",
     "framer-motion": "^11.15.0",
     "i18next": "^24.2.0",
     "negotiator": "^1.0.0",

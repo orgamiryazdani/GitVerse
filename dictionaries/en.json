@@ -27,5 +27,15 @@
   "this_result_was_not_found": "This result was not found",
   "more": "more",
   "activities": "Activities",
-  "logout": "logout"
+  "logout": "logout",
+  "about_title": "If you have any questions, found an issue on the website, or have suggestions, please contact us via email",
+  "about_social_text": "You can also reach us through the following social media platforms",
+  "send_email_field_error_message": "Please fill in all fields",
+  "send_email_success": "Email sent successfully",
+  "send_email_unsuccessful": "An issue occurred while sending the email",
+  "send_email_error": "Error in sending email",
+  "email_placeholder": "Your email",
+  "name_placeholder": "Your name",
+  "message_placeholder": "Message text",
+  "send_email_btn_text": "Send message"
 }

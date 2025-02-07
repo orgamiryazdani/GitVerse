@@ -78,7 +78,7 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
             <li key={`navigation-${item.href}`}>
               <a
                 onClick={() => changePage(item.href)}
-                className={`dark:hover:text-light-100 dark:text-light-100 cursor-pointer transition-colors pb-2 text-sm lg:text-base ${
+                className={`dark:hover:text-light-100 dark:text-light-100 cursor-pointer transition-colors pb-2 text-xs lg:text-base ${
                   isActive && 'border-b-2 dark:text-dark-100 dark:border-light-100 font-bold'
                 }`}
               >

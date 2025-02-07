@@ -27,5 +27,15 @@
   "this_result_was_not_found": "نتیجه ای یافت نشد",
   "more": "بیشتر",
   "activities": "فعالیت ها",
-  "logout": "خروج"
+  "logout": "خروج",
+  "about_title": "اگر سوالی دارید ، مشکلی در وبسایت پیدا کردید یا پیشنهادی دارید لطفا از طریق ایمیل با ما در ارتباط باشید",
+  "about_social_text": "هچنین میتوانید از طریق شبکه های اجتماعی زیر با ما در ارتباط باشید",
+  "send_email_field_error_message": "لطفاً تمام فیلدها را پر کنید",
+  "send_email_success": "ایمیل با موفقیت ارسال شد",
+  "send_email_unsuccessful": "مشکلی در ارسال ایمیل رخ داد",
+  "send_email_error": "خطا در ارسال ایمیل",
+  "email_placeholder": "ایمیل شما",
+  "name_placeholder": "نام شما",
+  "message_placeholder": "متن پیام",
+  "send_email_btn_text": "ارسال پیام"
 }
