@@ -37,6 +37,15 @@ export const TopNavigation: React.FC<{ showMenu: boolean; showMenuHandler: () =>
   };
 
   const changePage = (href: string) => {
+    if (href.startsWith('#')) {
+      if (pathname === '/') {
+        router.push(href);
+      } else {
+        router.push(`/${lang}${href}`);
+      }
+      return;
+    }
+
     if (href.startsWith(`/${lang}`)) {
       router.push(href);
     } else {
