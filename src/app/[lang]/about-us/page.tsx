@@ -39,19 +39,19 @@ export default async function AboutUs({ params }: { params: Params }) {
             Github
             <FaGithub className="text-2xl md:mb-[4px] mb-[5px]" />
           </Link>
-          <Link className="bg-[#0a66c1]" href="https://www.linkedin.com/in/amiryazdanii">
+          <Link target="_blank" className="bg-[#0a66c1]" href="https://www.linkedin.com/in/amiryazdanii">
             Linkedin
             <FaLinkedin className="text-2xl md:mb-[4px] mb-[5px]" />
           </Link>
-          <Link className="bg-[#0ec244]" href="https://wa.me/989174510960">
+          <Link target="_blank" className="bg-[#0ec244]" href="https://wa.me/989174510960">
             Whatsapp
             <FaWhatsapp className="text-2xl md:mb-[3px] mb-[5px]" />
           </Link>
-          <Link className="bg-[#ea4335]" href="mailto:orgamiryazdani@gmail.com">
+          <Link target="_blank" className="bg-[#ea4335]" href="mailto:orgamiryazdani@gmail.com">
             Gmail
             <SiGmail className="text-2xl md:mb-[4px] mb-[5px]" />
           </Link>
-          <Link className="bg-[#2b9fd8]" href="https://t.me/amiiiirryz">
+          <Link target="_blank" className="bg-[#2b9fd8]" href="https://t.me/amiiiirryz">
             Telegram
             <FaTelegram className="text-2xl md:mb-[3px] mb-[5px]" />
           </Link>
