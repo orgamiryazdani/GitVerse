@@ -30,7 +30,8 @@
   }
 
   input,
-  select {
+  select,
+  textarea {
     @apply focus:ring-4 dark:ring-light-400 ring-dark-400 outline-none;
   }
 
