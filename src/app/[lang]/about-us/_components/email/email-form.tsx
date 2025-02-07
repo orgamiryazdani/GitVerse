@@ -13,12 +13,15 @@ export const EmailForm = () => {
     message: '',
   });
   const dict = useDictionary();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (!formValue.from_name || !formValue.from_email || !formValue.message) {
       toast.error(dict.send_email_field_error_message);
+      setIsLoading(false);
       return;
     }
 
@@ -33,6 +36,7 @@ export const EmailForm = () => {
     } catch (error) {
       toast.error(dict.send_email_error);
     }
+    setIsLoading(false);
   };
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -63,8 +67,8 @@ export const EmailForm = () => {
         name="message"
         onChange={changeHandler}
       ></textarea>
-      <Button type="submit" variant="dark-300">
-        {dict.send_email_btn_text}
+      <Button disabled={isLoading} type="submit" variant="dark-300">
+        {isLoading ? dict.btn_loading_text : dict.send_email_btn_text}
       </Button>
     </form>
   );
