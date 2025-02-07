@@ -7,6 +7,19 @@ import { getDictionary } from '../dictionaries';
 
 type Params = Promise<lang>;
 
+export async function generateMetadata({ params }: { params: Params }) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+
+  return {
+    title: dict.meta_title_about,
+    description: dict.meta_description_about,
+    alternates: {
+      canonical: `https://git-verse.vercel.app/${lang}/about-us`,
+    },
+  };
+}
+
 export default async function AboutUs({ params }: { params: Params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
